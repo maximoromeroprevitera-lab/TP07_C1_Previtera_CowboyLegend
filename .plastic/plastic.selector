@@ -1,0 +1,4 @@
+repository "TP07_C1_Previtera_CowboyLegend/TP07_C1_Previtera_CowboyLegend@4674235988700@cloud"
+  path "/"
+    br "/main"
+    co "/main"
