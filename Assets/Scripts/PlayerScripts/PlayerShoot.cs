@@ -4,10 +4,10 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float bulletSpeed = 10f;
-
+    [SerializeField] private float bulletLifetime = 2f;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             Shoot();
         }
@@ -23,5 +23,7 @@ public class PlayerShoot : MonoBehaviour
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
 
         bulletRb.linearVelocity = Vector2.right * bulletSpeed;
+
+        Destroy(bullet, bulletLifetime);
     }
 }
