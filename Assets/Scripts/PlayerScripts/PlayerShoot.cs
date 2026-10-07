@@ -5,11 +5,20 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private float bulletLifetime = 2f;
+    [SerializeField] private float shootCooldown = 0.5f;
+
+    private float cooldownTimer;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (cooldownTimer > 0)
+        {
+            cooldownTimer -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.J) && cooldownTimer <= 0)
         {
             Shoot();
+            cooldownTimer = shootCooldown;
         }
     }
     private void Shoot()

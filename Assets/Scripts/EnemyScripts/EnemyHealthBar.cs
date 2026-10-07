@@ -1,18 +1,20 @@
 using UnityEngine;
-using UnityEngine.UI;
-
 public class EnemyHealthBar : MonoBehaviour
 {
-    [SerializeField] private Slider healthSlider;
-
-    public void SetMaxHealth(int maxHealth)
+    [SerializeField] private Transform fill;
+    private Vector3 originalScale;
+    private void Start()
     {
-        healthSlider.maxValue = maxHealth;
-        healthSlider.value = maxHealth;
+        originalScale = fill.localScale;
     }
-
-    public void SetHealth(int currentHealth)
+    public void SetHealth(float currentHealth, float maxHealth)
     {
-        healthSlider.value = currentHealth;
+        float healthPercent = currentHealth / maxHealth;
+
+        fill.localScale = new Vector3(
+            originalScale.x * healthPercent,
+            originalScale.y,
+            originalScale.z
+        );
     }
 }
