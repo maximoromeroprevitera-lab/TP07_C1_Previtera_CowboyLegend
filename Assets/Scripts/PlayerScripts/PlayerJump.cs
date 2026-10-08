@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField] private PlayerData playerData;
+    [SerializeField] private PlayerDataSO playerData;
 
     private Rigidbody2D rb;
     private bool isGrounded;

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42bab89f2fdb414190f2d575fd43886, type: 3}
+  m_Script: {fileID: 11500000, guid: b74d0fe3331f00d4fbdf20c969a7ebb6, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   moveSpeed: 5
-  jumpForce: 10
+  jumpForce: 5
   maxHealth: 3

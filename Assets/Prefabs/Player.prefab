@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4946728758895252}
   - component: {fileID: 4424408904070774721}
+  - component: {fileID: 3062526863110262051}
+  - component: {fileID: 3278463531840839548}
+  - component: {fileID: 7514169416502445607}
+  - component: {fileID: 3756294237692126471}
   - component: {fileID: 6749940585677992725}
   - component: {fileID: 3232962652001904625}
   m_Layer: 0
@@ -94,6 +98,62 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &3062526863110262051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555635779255779608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cbcd1d811286e4890aab2bb10a59ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
+  playerData: {fileID: 11400000, guid: 74fdb166a5d684a4b8dc3891b629dd2c, type: 2}
+--- !u!114 &3278463531840839548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555635779255779608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad233e67598c2f946a509515d2762ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  playerData: {fileID: 11400000, guid: 74fdb166a5d684a4b8dc3891b629dd2c, type: 2}
+--- !u!114 &7514169416502445607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555635779255779608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7df7dbc7f8eccd47b9cd1d102a48861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShoot
+  bulletPrefab: {fileID: 4748591580246205233, guid: 70fbb08d6b97c0c41870bfd9c60450ec, type: 3}
+  shootPoint: {fileID: 4801349495844819556}
+  bulletSpeed: 10
+  bulletLifetime: 2
+  shootCooldown: 0.5
+--- !u!114 &3756294237692126471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555635779255779608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8400c2787d3f845b472f8d18f096eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
+  playerData: {fileID: 11400000, guid: 74fdb166a5d684a4b8dc3891b629dd2c, type: 2}
 --- !u!50 &6749940585677992725
 Rigidbody2D:
   serializedVersion: 5

@@ -1,7 +1,7 @@
 using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private PlayerData playerData;
+    [SerializeField] private PlayerDataSO playerData;
 
     private Rigidbody2D rb;
     private float horizontalInput;
