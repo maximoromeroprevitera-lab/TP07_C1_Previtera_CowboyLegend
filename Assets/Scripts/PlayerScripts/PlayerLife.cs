@@ -17,6 +17,17 @@ public class PlayerLife : MonoBehaviour
             Die();
         }
     }
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+
+        if (currentHealth > playerData.maxHealth)
+        {
+            currentHealth = playerData.maxHealth;
+        }
+
+        Debug.Log("Player health: " + currentHealth);
+    }
     private void Die()
     {
         Debug.Log("Player defeated");

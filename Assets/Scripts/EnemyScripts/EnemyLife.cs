@@ -3,6 +3,7 @@ public class EnemyLife : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private EnemyHealthBar healthBar;
+    [SerializeField] private GameObject deathParticles;
     private int currentHealth;
     private void Start()
     {
@@ -23,6 +24,11 @@ public class EnemyLife : MonoBehaviour
     }
     private void Die()
     {
+        Instantiate(
+            deathParticles,
+            transform.position,
+            Quaternion.identity
+        );
         Destroy(gameObject);
     }
 }
