@@ -2,29 +2,80 @@ using UnityEngine;
 public class GroundSpawn : MonoBehaviour
 {
     public Transform player;
-    public float groundWidth = 20f;
-    private float startY;
-    private float startZ;
-    private void Start()
+    public Transform[] groundPieces;
+    public float groundWidth = 30f;
+    private float previousPlayerX;
+    void Start()
     {
-        startY = transform.position.y;
-        startZ = transform.position.z;
+        previousPlayerX = player.position.x;
     }
-
-    private void Update()
+    void Update()
     {
-        if (player == null)
+        if (player == null || groundPieces.Length == 0)
         {
             return;
         }
+        float playerMovement = player.position.x - previousPlayerX;
 
-        if (player.position.x - transform.position.x > groundWidth)
+        if (playerMovement > 0f)
         {
-            transform.position = new Vector3(
-                transform.position.x + groundWidth * 3f,
-                startY,
-                startZ
-            );
+            foreach (Transform piece in groundPieces)
+            {
+                if (player.position.x > piece.position.x + groundWidth)
+                {
+                    float rightmostX = GetRightmostX();
+
+                    piece.position = new Vector3(
+                        rightmostX + groundWidth,
+                        piece.position.y,
+                        piece.position.z
+                    );
+                }
+            }
         }
+        else if (playerMovement < 0f)
+        {
+            foreach (Transform piece in groundPieces)
+            {
+                if (player.position.x < piece.position.x - groundWidth)
+                {
+                    float leftmostX = GetLeftmostX();
+
+                    piece.position = new Vector3(
+                        leftmostX - groundWidth,
+                        piece.position.y,
+                        piece.position.z
+                    );
+                }
+            }
+        }
+        previousPlayerX = player.position.x;
+    }
+    float GetRightmostX()
+    {
+        float rightmostX = groundPieces[0].position.x;
+
+        foreach (Transform piece in groundPieces)
+        {
+            if (piece.position.x > rightmostX)
+            {
+                rightmostX = piece.position.x;
+            }
+        }
+
+        return rightmostX;
+    }
+    float GetLeftmostX()
+    {
+        float leftmostX = groundPieces[0].position.x;
+
+        foreach (Transform piece in groundPieces)
+        {
+            if (piece.position.x < leftmostX)
+            {
+                leftmostX = piece.position.x;
+            }
+        }
+        return leftmostX;
     }
 }

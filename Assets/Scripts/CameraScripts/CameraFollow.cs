@@ -12,13 +12,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (player != null)
         {
-            Vector3 newPosition = player.position + offset;
-
-            transform.position = Vector3.Lerp(
-                transform.position,
-                newPosition,
-                smoothSpeed * Time.deltaTime
-            );
+            transform.position = player.position + offset;
         }
     }
 }

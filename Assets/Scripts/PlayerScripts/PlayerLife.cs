@@ -1,8 +1,8 @@
 using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
+    public GameManager gameManager;
     [SerializeField] private PlayerDataSO playerData;
-
     private int currentHealth;
     private void Start()
     {
@@ -30,6 +30,7 @@ public class PlayerLife : MonoBehaviour
     }
     private void Die()
     {
+        gameManager.GameOver();
         Debug.Log("Player defeated");
     }
 }
