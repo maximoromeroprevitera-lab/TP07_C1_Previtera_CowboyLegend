@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private bool gameEnded;
     private void Start()
     {
+        AudioManager.Instance.PlayGameOver();
         GameOverPanel.SetActive(false);
         Time.timeScale = 1f;
     }

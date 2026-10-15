@@ -14,11 +14,12 @@ public class EnemyLife : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
+        AudioManager.Instance.PlayEnemyHit();
         healthBar.SetHealth(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
         {
+            AudioManager.Instance.PlayEnemyDeath();
             Die();
         }
     }

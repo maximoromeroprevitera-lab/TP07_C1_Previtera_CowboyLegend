@@ -314,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 71181101}
   - component: {fileID: 71181102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 117828652}
   - component: {fileID: 117828651}
   - component: {fileID: 117828650}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1765,7 +1765,7 @@ GameObject:
   - component: {fileID: 1763628110}
   - component: {fileID: 1763628113}
   - component: {fileID: 1763628114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2041,7 +2041,7 @@ GameObject:
   - component: {fileID: 1861324332}
   - component: {fileID: 1861324331}
   - component: {fileID: 1861324330}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2248,6 +2248,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.08711326
       objectReference: {fileID: 0}
+    - target: {fileID: 3278463531840839548, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1149014569859582724}
+    - target: {fileID: 3278463531840839548, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 3756294237692126471, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
       propertyPath: gameManager
       value: 
@@ -2255,6 +2263,14 @@ PrefabInstance:
     - target: {fileID: 4801349495844819556, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165574882640573336, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6310763717777349591, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.07
       objectReference: {fileID: 0}
     - target: {fileID: 6749940585677992725, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
       propertyPath: m_Constraints
@@ -2266,6 +2282,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
+--- !u!4 &1149014569859582724 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6310763717777349591, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
+  m_PrefabInstance: {fileID: 1149014569859582723}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3517519865659908389
 PrefabInstance:
   m_ObjectHideFlags: 0

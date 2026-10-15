@@ -19,6 +19,7 @@ public class PlayerShoot : MonoBehaviour
         {
             Shoot();
             cooldownTimer = shootCooldown;
+            AudioManager.Instance.PlayShoot();
         }
     }
     private void Shoot()

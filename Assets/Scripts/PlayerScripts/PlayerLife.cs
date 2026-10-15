@@ -11,6 +11,7 @@ public class PlayerLife : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        AudioManager.Instance.PlayPlayerHit();
 
         if (currentHealth <= 0)
         {

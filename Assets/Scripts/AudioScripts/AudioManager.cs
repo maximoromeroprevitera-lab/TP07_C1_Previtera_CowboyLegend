@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     [Header("Sound Effects")]
     public AudioSource sfxSource;
     public AudioClip shootSound;
+    public AudioClip playerHitSound;
+    public AudioClip enemyHitSound;
     public AudioClip jumpSound;
     public AudioClip enemyDeathSound;
     public AudioClip gameOverSound;
@@ -40,6 +42,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlaySceneMusic(SceneManager.GetActiveScene().name);
+        TestSound();
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -81,6 +84,14 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.PlayOneShot(shootSound);
     }
+    public void PlayPlayerHit()
+    {
+        sfxSource.PlayOneShot(playerHitSound);
+    }
+    public void PlayEnemyHit()
+    {
+        sfxSource.PlayOneShot(enemyHitSound);
+    }
     public void PlayJump()
     {
         sfxSource.PlayOneShot(jumpSound);
@@ -96,7 +107,14 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayButton()
     {
-        sfxSource.PlayOneShot(buttonSound);
+        if (sfxSource != null && sfxSource.isActiveAndEnabled && buttonSound != null)
+        {
+            sfxSource.PlayOneShot(buttonSound);
+        }
+        else
+        {
+            Debug.LogError("SFX Source is disabled or Button Sound is missing!");
+        }
     }
     public void StartRunning()
     {
@@ -110,5 +128,18 @@ public class AudioManager : MonoBehaviour
     public void StopRunning()
     {
         runSource.Stop();
+    }
+    public void TestSound()
+    {
+        Debug.Log("Testing sound");
+
+        if (sfxSource != null && shootSound != null)
+        {
+            sfxSource.PlayOneShot(shootSound);
+        }
+        else
+        {
+            Debug.LogError("SFX Source or Shoot Sound is missing!");
+        }
     }
 }

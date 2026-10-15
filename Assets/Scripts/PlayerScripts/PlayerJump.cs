@@ -15,11 +15,11 @@ public class PlayerJump : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            AudioManager.Instance.PlayJump();
             rb.linearVelocity = new Vector2(
                 rb.linearVelocity.x,
                 playerData.jumpForce
             );
-
             isGrounded = false;
         }
     }
