@@ -1,19 +1,33 @@
 using UnityEngine;
-using UnityEngine.Audio;
+using UnityEngine.UI;
+
 public class SettingsAudio : MonoBehaviour
 {
-    [SerializeField] private AudioMixer mixer;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider sfxSlider;
 
-    public void SetMasterVolume(float value)
+    private void Start()
     {
-        mixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
+        musicSlider.value = AudioManager.Instance.GetMusicVolume();
+        sfxSlider.value = AudioManager.Instance.GetSfxVolume();
+
+        // Los logs dicen qué slider se movió y cómo quedó cada parámetro del mixer.
+        musicSlider.onValueChanged.AddListener(v =>
+        {
+            AudioManager.Instance.SetMusicVolume(v);
+            LogState("MUSIC slider", musicSlider);
+        });
+
+        sfxSlider.onValueChanged.AddListener(v =>
+        {
+            AudioManager.Instance.SetSfxVolume(v);
+            LogState("SFX slider", sfxSlider);
+        });
     }
-    public void SetMusicVolume(float value)
+
+    private void LogState(string label, Slider slider)
     {
-        mixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
-    }
-    public void SetSfxVolume(float value)
-    {
-        mixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20);
+        Debug.Log($"{label} movido (objeto: {slider.name}) | MusicVolume = {AudioManager.Instance.GetMusicVolume():F2} | " +
+                  $"SFXVolume = {AudioManager.Instance.GetSfxVolume():F2}", slider);
     }
 }

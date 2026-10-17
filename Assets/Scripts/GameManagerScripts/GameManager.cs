@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     private bool gameEnded;
     private void Start()
     {
-        AudioManager.Instance.PlayGameOver();
         GameOverPanel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -17,6 +16,7 @@ public class GameManager : MonoBehaviour
         if (!gameEnded)
         {
             gameEnded = true;
+            AudioManager.Instance.PlayGameOver(); // frena la música y suena el game over al morir
             StartCoroutine(ShowGameOver());
         }
     }

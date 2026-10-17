@@ -298,6 +298,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 321438802099724560, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 637206301458455149, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -434,6 +438,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7169291399341476045, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7859062252972918138, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -462,11 +470,11 @@ PrefabInstance:
     - target: {fileID: 32741713853354118, guid: c61487df96b8a774ba90ddbd64bda5d5, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 9021780605875346634, guid: 8e820a7fc1216234a9818ad8f2fe0ba9, type: 2}
+      objectReference: {fileID: 3375580057956752733, guid: 94f4d49ff6e8e7b428b2eb79a80fb9ac, type: 2}
     - target: {fileID: 79502348501593931, guid: c61487df96b8a774ba90ddbd64bda5d5, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 9021780605875346634, guid: 8e820a7fc1216234a9818ad8f2fe0ba9, type: 2}
+      objectReference: {fileID: 3375580057956752733, guid: 94f4d49ff6e8e7b428b2eb79a80fb9ac, type: 2}
     - target: {fileID: 1613137383203511917, guid: c61487df96b8a774ba90ddbd64bda5d5, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -518,7 +526,15 @@ PrefabInstance:
     - target: {fileID: 5835249619235929625, guid: c61487df96b8a774ba90ddbd64bda5d5, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: -3449037606051412872, guid: 8e820a7fc1216234a9818ad8f2fe0ba9, type: 2}
+      objectReference: {fileID: -3818730298336992679, guid: 94f4d49ff6e8e7b428b2eb79a80fb9ac, type: 2}
+    - target: {fileID: 8496656377146608595, guid: c61487df96b8a774ba90ddbd64bda5d5, type: 3}
+      propertyPath: mixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 94f4d49ff6e8e7b428b2eb79a80fb9ac, type: 2}
+    - target: {fileID: 8496656377146608595, guid: c61487df96b8a774ba90ddbd64bda5d5, type: 3}
+      propertyPath: SfxSource
+      value: 
+      objectReference: {fileID: 1485221526071040290}
     - target: {fileID: 8496656377146608595, guid: c61487df96b8a774ba90ddbd64bda5d5, type: 3}
       propertyPath: runSource
       value: 

@@ -47,10 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f35640a566901c49a6aaa3197edf349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  mixer: {fileID: 24100000, guid: 94f4d49ff6e8e7b428b2eb79a80fb9ac, type: 2}
   musicSource: {fileID: 5835249619235929625}
   mainMenuMusic: {fileID: 8300000, guid: f226292ea98d3cb4e98c7da4d5c0f075, type: 3}
   gameplayMusic: {fileID: 8300000, guid: 8de7f2b3f3f6e7244acd2a9fc8edc751, type: 3}
-  sfxSource: {fileID: 32741713853354118}
+  SfxSource: {fileID: 32741713853354118}
   shootSound: {fileID: 8300000, guid: 96886f23a8b58d649977944ddfc3dfae, type: 3}
   playerHitSound: {fileID: 8300000, guid: fe842195ba7504541b5f3a67e8fcee9c, type: 3}
   enemyHitSound: {fileID: 8300000, guid: 17a74170679cb1f4abe94643097829c1, type: 3}
@@ -101,7 +102,7 @@ AudioSource:
   m_GameObject: {fileID: 7834247235307679304}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3818730298336992679, guid: 94f4d49ff6e8e7b428b2eb79a80fb9ac, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
@@ -230,7 +231,7 @@ AudioSource:
   m_GameObject: {fileID: 7972189807124303446}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3375580057956752733, guid: 94f4d49ff6e8e7b428b2eb79a80fb9ac, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
@@ -359,7 +360,7 @@ AudioSource:
   m_GameObject: {fileID: 9024827708045780056}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3375580057956752733, guid: 94f4d49ff6e8e7b428b2eb79a80fb9ac, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0

@@ -6,8 +6,13 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private float bulletLifetime = 2f;
     [SerializeField] private float bulletSpeed = 8f;
     [SerializeField] private float shootCooldown = 1.5f;
+    private EnemyFollow follow;
     private Transform player;
     private float cooldownTimer;
+    private void Awake()
+    {
+        follow = GetComponent<EnemyFollow>();
+    }
     private void Start()
     {
         PlayerMovement playerMovement = FindFirstObjectByType<PlayerMovement>();
@@ -16,10 +21,16 @@ public class EnemyShoot : MonoBehaviour
         {
             player = playerMovement.transform;
         }
+        cooldownTimer = shootCooldown;
     }
     private void Update()
     {
         if (player == null)
+        {
+            return;
+        }
+
+        if (!follow.PlayerInShootRange)
         {
             return;
         }
@@ -44,7 +55,6 @@ public class EnemyShoot : MonoBehaviour
         );
 
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-
         Vector2 direction = player.position - shootPoint.position;
         direction.Normalize();
 

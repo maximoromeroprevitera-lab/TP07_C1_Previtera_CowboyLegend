@@ -1,14 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+    [Header("Audio Mixer")]
+    public AudioMixer mixer;
     [Header("Music")]
     public AudioSource musicSource;
     public AudioClip mainMenuMusic;
     public AudioClip gameplayMusic;
+
     [Header("Sound Effects")]
-    public AudioSource sfxSource;
+    public AudioSource SfxSource;
     public AudioClip shootSound;
     public AudioClip playerHitSound;
     public AudioClip enemyHitSound;
@@ -22,99 +26,41 @@ public class AudioManager : MonoBehaviour
     public AudioClip runSound;
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        musicSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Music")[0];
+        SfxSource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
+        runSource.outputAudioMixerGroup = SfxSource.outputAudioMixerGroup;
     }
     private void Start()
     {
-        PlaySceneMusic(SceneManager.GetActiveScene().name);
-        TestSound();
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        PlaySceneMusic(scene.name);
-    }
-    private void PlaySceneMusic(string sceneName)
-    {
-        AudioClip clip = null;
-
-        if (sceneName == "MainMenu")
-        {
-            clip = mainMenuMusic;
-        }
-        else if (sceneName == "Game")
-        {
-            clip = gameplayMusic;
-        }
-
-        if (musicSource.clip == clip)
-        {
-            if (clip != null && !musicSource.isPlaying)
-            {
-                musicSource.Play();
-            }
-
-            return;
-        }
-
-        musicSource.Stop();
-        musicSource.clip = clip;
+        AudioClip clip = SceneManager.GetActiveScene().name == "MainMenu" ? mainMenuMusic : gameplayMusic;
 
         if (clip != null)
         {
+            musicSource.clip = clip;
             musicSource.loop = true;
             musicSource.Play();
         }
     }
-    public void PlayShoot()
-    {
-        sfxSource.PlayOneShot(shootSound);
-    }
-    public void PlayPlayerHit()
-    {
-        sfxSource.PlayOneShot(playerHitSound);
-    }
-    public void PlayEnemyHit()
-    {
-        sfxSource.PlayOneShot(enemyHitSound);
-    }
-    public void PlayJump()
-    {
-        sfxSource.PlayOneShot(jumpSound);
-    }
-    public void PlayEnemyDeath()
-    {
-        sfxSource.PlayOneShot(enemyDeathSound);
-    }
+    private float GetVolume(string param) =>
+        mixer.GetFloat(param, out float db) ? Mathf.Pow(10f, db / 20f) : 1f;
+    private void SetVolume(string param, float value) =>
+        mixer.SetFloat(param, Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20);
+    public float GetMusicVolume() => GetVolume("MusicVolume");
+    public float GetSfxVolume() => GetVolume("SFXVolume");
+    public void SetMusicVolume(float value) => SetVolume("MusicVolume", value);
+    public void SetSfxVolume(float value) => SetVolume("SFXVolume", value);
+
+    public void PlayShoot() => SfxSource.PlayOneShot(shootSound);
+    public void PlayPlayerHit() => SfxSource.PlayOneShot(playerHitSound);
+    public void PlayEnemyHit() => SfxSource.PlayOneShot(enemyHitSound);
+    public void PlayJump() => SfxSource.PlayOneShot(jumpSound);
+    public void PlayEnemyDeath() => SfxSource.PlayOneShot(enemyDeathSound);
+    public void PlayButton() => SfxSource.PlayOneShot(buttonSound);
     public void PlayGameOver()
     {
         musicSource.Stop();
-        sfxSource.PlayOneShot(gameOverSound);
-    }
-    public void PlayButton()
-    {
-        if (sfxSource != null && sfxSource.isActiveAndEnabled && buttonSound != null)
-        {
-            sfxSource.PlayOneShot(buttonSound);
-        }
-        else
-        {
-            Debug.LogError("SFX Source is disabled or Button Sound is missing!");
-        }
+        SfxSource.PlayOneShot(gameOverSound);
     }
     public void StartRunning()
     {
@@ -125,21 +71,5 @@ public class AudioManager : MonoBehaviour
             runSource.Play();
         }
     }
-    public void StopRunning()
-    {
-        runSource.Stop();
-    }
-    public void TestSound()
-    {
-        Debug.Log("Testing sound");
-
-        if (sfxSource != null && shootSound != null)
-        {
-            sfxSource.PlayOneShot(shootSound);
-        }
-        else
-        {
-            Debug.LogError("SFX Source or Shoot Sound is missing!");
-        }
-    }
+    public void StopRunning() => runSource.Stop();
 }

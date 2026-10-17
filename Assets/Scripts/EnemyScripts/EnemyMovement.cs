@@ -3,39 +3,56 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
     [SerializeField] private float movementDistance = 3f;
-
-    private Vector3 startPosition;
+    private Rigidbody2D rb;
+    private EnemyFollow follow;
+    private float startX;
     private bool movingRight = true;
-
+    private bool following;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        follow = GetComponent<EnemyFollow>();
+    }
     private void Start()
     {
-        startPosition = transform.position;
+        startX = transform.position.x;
     }
-
-    private void Update()
+    private void FixedUpdate()
     {
-        Move();
-    }
-
-    private void Move()
-    {
-        if (movingRight)
+        if (follow != null && follow.PlayerSeen)
         {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-
-            if (transform.position.x >= startPosition.x + movementDistance)
-            {
-                movingRight = false;
-            }
+            following = true;
+            return;
         }
-        else
-        {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
 
-            if (transform.position.x <= startPosition.x - movementDistance)
-            {
-                movingRight = true;
-            }
+        if (following)
+        {
+            following = false;
+            startX = transform.position.x;
+        }
+
+        Patrol();
+    }
+    private void Patrol()
+    {
+        if (movingRight && transform.position.x >= startX + movementDistance)
+        {
+            movingRight = false;
+        }
+        else if (!movingRight && transform.position.x <= startX - movementDistance)
+        {
+            movingRight = true;
+        }
+
+        float direction = movingRight ? 1f : -1f;
+        rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Patrullando, si choca con un barril se da vuelta.
+        if (!following && collision.collider.GetComponentInParent<Barrel>() != null)
+        {
+            movingRight = !movingRight;
         }
     }
 }
