@@ -5,6 +5,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float movementDistance = 3f;
     private Rigidbody2D rb;
     private EnemyFollow follow;
+    private Animator animator;
     private float startX;
     private bool movingRight = true;
     private bool following;
@@ -12,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         follow = GetComponent<EnemyFollow>();
+        animator = GetComponent<Animator>();
     }
     private void Start()
     {
@@ -22,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
         if (follow != null && follow.PlayerSeen)
         {
             following = true;
+            UpdateAnimation();
             return;
         }
 
@@ -32,6 +35,7 @@ public class EnemyMovement : MonoBehaviour
         }
 
         Patrol();
+        UpdateAnimation();
     }
     private void Patrol()
     {
@@ -45,7 +49,21 @@ public class EnemyMovement : MonoBehaviour
         }
 
         float direction = movingRight ? 1f : -1f;
-        rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
+
+        rb.linearVelocity = new Vector2(
+            direction * speed,
+            rb.linearVelocity.y
+        );
+    }
+    private void UpdateAnimation()
+    {
+        if (animator == null)
+        {
+            return;
+        }
+
+        float horizontalSpeed = Mathf.Abs(rb.linearVelocity.x);
+        animator.SetFloat("Speed", horizontalSpeed);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

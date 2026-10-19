@@ -116,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 2462542909766654025}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.84, y: 0, z: 0}
+  m_LocalPosition: {x: -0.84, y: 0.349, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -237,7 +237,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6415094, g: 0.10288349, b: 0.10288349, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 42597957001463136}
   - component: {fileID: 1889059019824831897}
   - component: {fileID: 185684578151645487}
+  - component: {fileID: -6071210685924593234}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -392,7 +393,8 @@ MonoBehaviour:
   healthBar: {fileID: 253975721785999309}
   deathParticles: {fileID: 2482280297917236139, guid: f6d8367ac90756442a43248e1110d554, type: 3}
   ammoBoxPrefab: {fileID: 1310457646027995003, guid: 2b9162cb9f60b074d922df5468fc9b39, type: 3}
-  dropOffsetY: -0.75
+  dropOffsetY: -0.6
+  deathAnimationTime: 1
 --- !u!114 &253975721785999309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,3 +512,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9117647, y: 2.1653857}
   m_EdgeRadius: 0
+--- !u!95 &-6071210685924593234
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254588072812238292}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a73ee381d0eaed84c9881a9b1f9a885e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

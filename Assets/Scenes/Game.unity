@@ -1369,7 +1369,7 @@ MonoBehaviour:
   pickablePrefab: {fileID: 1097126900871704949, guid: 45ec0ec5c8970c74c853bebb6d57159f, type: 3}
   player: {fileID: 4946728758895252, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
   spawnY: -3.5
-  spawnTime: 15
+  spawnTime: 10
   maxPickables: 1
   minDistanceFromPlayer: 4
   maxDistanceFromPlayer: 10
@@ -2143,7 +2143,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8254588072812238292, guid: 79ca8af30080ed946ae10152e6210e37, type: 3}
   player: {fileID: 219110974}
   spawnY: -2.9
-  spawnTime: 8
+  spawnTime: 15
   maxEnemies: 2
   minDistanceFromPlayer: 6
   maxDistanceFromPlayer: 13
@@ -2494,9 +2494,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BarDoorSpawner
   doorPrefab: {fileID: 4330237917136782308, guid: 2f6d6d52a344b7244bb2a0d7f6c513dc, type: 3}
   player: {fileID: 4946728758895252, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
-  timeToAppear: 10
+  timeToAppear: 100
   distanceFromPlayer: 14
-  spawnY: -3
+  spawnY: -2.8
 --- !u!1001 &1149014569859582723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2579,7 +2579,11 @@ PrefabInstance:
       objectReference: {fileID: 1772328755}
     - target: {fileID: 4801349495844819556, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.92
+      value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801349495844819556, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 6165574882640573336, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
       propertyPath: m_Layer
@@ -2597,13 +2601,43 @@ PrefabInstance:
     - {fileID: 3232962652001904625, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 555635779255779608, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1149014569859582726}
   m_SourcePrefab: {fileID: 100100000, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
 --- !u!4 &1149014569859582724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6310763717777349591, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
   m_PrefabInstance: {fileID: 1149014569859582723}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1149014569859582725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 555635779255779608, guid: 7a93ac16e4cb75841badc4d9d2daaaa7, type: 3}
+  m_PrefabInstance: {fileID: 1149014569859582723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1149014569859582726
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149014569859582725}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10cd5689190190f4bad60baaaf686691, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &8277421285482773918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2736,6 +2770,39 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1671624143924485470, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_text
+      value: Sobrevive 100 segundos hasta la puerta del bar, tenes 3 vidas, mucha
+        suerte
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671624143924485470, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671624143924485470, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_margin.z
+      value: -233.54202
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671624143924485470, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.09178828
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671624143924485470, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.09178828
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671624143924485470, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.24528301
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671624143924485470, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671624143924485470, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4279703359
+      objectReference: {fileID: 0}
     - target: {fileID: 2027616887707346740, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2848,6 +2915,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7904745736888996964, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.07357303
+      objectReference: {fileID: 0}
+    - target: {fileID: 7904745736888996964, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.07357303
+      objectReference: {fileID: 0}
+    - target: {fileID: 7904745736888996964, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.1509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 7904745736888996964, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4279440166
+      objectReference: {fileID: 0}
     - target: {fileID: 8153747770443705862, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2860,6 +2943,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9212592328152283703, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -290
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212592328152283703, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 83
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2867,6 +2958,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7014230494618730830, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8277421285482773921}
+    - targetCorrespondingSourceObject: {fileID: 798262057683092817, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8277421285482773924}
   m_SourcePrefab: {fileID: 100100000, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
 --- !u!1 &8277421285482773919 stripped
 GameObject:
@@ -2897,6 +2991,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoCounter
   ammoText: {fileID: 8277421285482773920}
+  victoryPanel: {fileID: 901625205}
+--- !u!1 &8277421285482773922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 798262057683092817, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+  m_PrefabInstance: {fileID: 8277421285482773918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8277421285482773923 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1671624143924485470, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+  m_PrefabInstance: {fileID: 8277421285482773918}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8277421285482773922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &8277421285482773924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8277421285482773922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b163469265c40be41adef03d6228ee98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectiveMessage
+  objectiveText: {fileID: 8277421285482773923}
+  displayTime: 5
+  moveSpeed: 500
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

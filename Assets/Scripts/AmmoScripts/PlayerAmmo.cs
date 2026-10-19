@@ -1,4 +1,4 @@
-using  UnityEngine;
+using UnityEngine;
 public class PlayerAmmo : MonoBehaviour
 {
     [SerializeField] private int magazineSize = 4;
@@ -7,9 +7,14 @@ public class PlayerAmmo : MonoBehaviour
     private int currentBullets;
     private bool reloading;
     private float reloadTimer;
+    private Animator animator;
     public int CurrentBullets => currentBullets;
     public int ReserveBullets => reserveBullets;
     public bool CanShoot => currentBullets > 0 && !reloading;
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void Start()
     {
         currentBullets = magazineSize;
@@ -29,10 +34,15 @@ public class PlayerAmmo : MonoBehaviour
 
             return;
         }
-        if (Input.GetKeyDown(KeyCode.R) && currentBullets < magazineSize && reserveBullets > 0)
+
+        if (Input.GetKeyDown(KeyCode.R) &&
+            currentBullets < magazineSize &&
+            reserveBullets > 0)
         {
             reloading = true;
             reloadTimer = reloadTime;
+
+            animator.SetTrigger("Recharge");
         }
     }
     public void UseBullet()

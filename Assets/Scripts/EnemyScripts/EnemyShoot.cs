@@ -8,12 +8,14 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private float shootCooldown = 1.5f;
     private EnemyFollow follow;
     private EnemyAmmo ammo;
+    private Animator animator;
     private Transform player;
     private float cooldownTimer;
     private void Awake()
     {
         follow = GetComponent<EnemyFollow>();
         ammo = GetComponent<EnemyAmmo>();
+        animator = GetComponent<Animator>();
     }
     private void Start()
     {
@@ -23,6 +25,7 @@ public class EnemyShoot : MonoBehaviour
         {
             player = playerMovement.transform;
         }
+
         cooldownTimer = shootCooldown;
     }
     private void Update()
@@ -44,8 +47,11 @@ public class EnemyShoot : MonoBehaviour
 
         if (cooldownTimer <= 0)
         {
+            animator.SetTrigger("Shoot");
+
             Shoot();
             ammo.UseBullet();
+
             cooldownTimer = shootCooldown;
         }
     }
