@@ -6,8 +6,12 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private float bulletLifetime = 2f;
     [SerializeField] private float shootCooldown = 0.5f;
-
+    private PlayerAmmo ammo;
     private float cooldownTimer;
+    private void Awake()
+    {
+        ammo = GetComponent<PlayerAmmo>();
+    }
     private void Update()
     {
         if (cooldownTimer > 0)
@@ -15,9 +19,10 @@ public class PlayerShoot : MonoBehaviour
             cooldownTimer -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.J) && cooldownTimer <= 0)
+        if (Input.GetKeyDown(KeyCode.J) && cooldownTimer <= 0 && ammo.CanShoot)
         {
             Shoot();
+            ammo.UseBullet();
             cooldownTimer = shootCooldown;
             AudioManager.Instance.PlayShoot();
         }

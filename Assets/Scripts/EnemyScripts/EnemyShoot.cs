@@ -7,11 +7,13 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private float bulletSpeed = 8f;
     [SerializeField] private float shootCooldown = 1.5f;
     private EnemyFollow follow;
+    private EnemyAmmo ammo;
     private Transform player;
     private float cooldownTimer;
     private void Awake()
     {
         follow = GetComponent<EnemyFollow>();
+        ammo = GetComponent<EnemyAmmo>();
     }
     private void Start()
     {
@@ -30,7 +32,7 @@ public class EnemyShoot : MonoBehaviour
             return;
         }
 
-        if (!follow.PlayerInShootRange)
+        if (!follow.PlayerInShootRange || !ammo.CanShoot)
         {
             return;
         }
@@ -43,6 +45,7 @@ public class EnemyShoot : MonoBehaviour
         if (cooldownTimer <= 0)
         {
             Shoot();
+            ammo.UseBullet();
             cooldownTimer = shootCooldown;
         }
     }
@@ -55,6 +58,7 @@ public class EnemyShoot : MonoBehaviour
         );
 
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+
         Vector2 direction = player.position - shootPoint.position;
         direction.Normalize();
 

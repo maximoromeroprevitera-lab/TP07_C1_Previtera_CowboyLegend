@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 1338740203131271681}
   - component: {fileID: 253975721785999309}
   - component: {fileID: 8250252061954832292}
+  - component: {fileID: 42597957001463136}
   - component: {fileID: 1889059019824831897}
   - component: {fileID: 185684578151645487}
   m_Layer: 0
@@ -390,6 +391,8 @@ MonoBehaviour:
   maxHealth: 3
   healthBar: {fileID: 253975721785999309}
   deathParticles: {fileID: 2482280297917236139, guid: f6d8367ac90756442a43248e1110d554, type: 3}
+  ammoBoxPrefab: {fileID: 1310457646027995003, guid: 2b9162cb9f60b074d922df5468fc9b39, type: 3}
+  dropOffsetY: -0.75
 --- !u!114 &253975721785999309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +423,20 @@ MonoBehaviour:
   bulletLifetime: 2
   bulletSpeed: 8
   shootCooldown: 1.5
+--- !u!114 &42597957001463136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254588072812238292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec367ca00db05247b22a6c7529ac3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAmmo
+  magazineSize: 4
+  reloadTime: 4
 --- !u!50 &1889059019824831897
 Rigidbody2D:
   serializedVersion: 5

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3278463531840839548}
   - component: {fileID: 7514169416502445607}
   - component: {fileID: 3756294237692126471}
+  - component: {fileID: 8087857037368666500}
   - component: {fileID: 6749940585677992725}
   - component: {fileID: 5875272030046105619}
   m_Layer: 0
@@ -160,6 +161,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
   gameManager: {fileID: 0}
   playerData: {fileID: 11400000, guid: 74fdb166a5d684a4b8dc3891b629dd2c, type: 2}
+--- !u!114 &8087857037368666500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555635779255779608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4f82bb787aa7b4793a105abcac7ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAmmo
+  magazineSize: 4
+  reserveBullets: 12
+  reloadTime: 1
 --- !u!50 &6749940585677992725
 Rigidbody2D:
   serializedVersion: 5

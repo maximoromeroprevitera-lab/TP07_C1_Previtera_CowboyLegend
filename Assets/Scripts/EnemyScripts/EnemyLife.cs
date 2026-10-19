@@ -4,6 +4,8 @@ public class EnemyLife : MonoBehaviour
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private EnemyHealthBar healthBar;
     [SerializeField] private GameObject deathParticles;
+    [SerializeField] private GameObject ammoBoxPrefab;
+    [SerializeField] private float dropOffsetY = -0.75f;
     private int currentHealth;
     private void Start()
     {
@@ -28,6 +30,12 @@ public class EnemyLife : MonoBehaviour
         Instantiate(
             deathParticles,
             transform.position,
+            Quaternion.identity
+        );
+
+        Instantiate(
+            ammoBoxPrefab,
+            new Vector2(transform.position.x, transform.position.y + dropOffsetY),
             Quaternion.identity
         );
         Destroy(gameObject);
