@@ -2650,6 +2650,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 798262057683092817, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 841887229053421685, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2863,6 +2867,10 @@ PrefabInstance:
       propertyPath: playAgainButton
       value: 
       objectReference: {fileID: 980360173}
+    - target: {fileID: 7014230494618730830, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7038531689859540268, guid: 37cda6683b3fee748b46ba1355aa9307, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
