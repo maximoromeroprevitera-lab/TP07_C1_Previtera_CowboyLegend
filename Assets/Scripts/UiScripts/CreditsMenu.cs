@@ -1,6 +1,7 @@
 using UnityEngine;
 public class CreditsMenu : MonoBehaviour
 {
+    // Warning: creditsPanel y mainPanel son public. Pasalos a [SerializeField] private.
     public GameObject creditsPanel;
     public GameObject mainPanel;
     public void OpenCredits()

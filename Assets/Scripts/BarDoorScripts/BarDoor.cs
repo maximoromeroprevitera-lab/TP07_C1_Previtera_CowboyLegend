@@ -7,6 +7,8 @@ public class BarDoor : MonoBehaviour
 
         if (player != null)
         {
+            // Warning: FindFirstObjectByType en runtime y sin null check: si no hay VictoryManager en la escena tira NullReferenceException.
+            // Pasale la referencia al instanciar la puerta desde BarDoorSpawner.
             FindFirstObjectByType<VictoryManager>().Win();
         }
     }

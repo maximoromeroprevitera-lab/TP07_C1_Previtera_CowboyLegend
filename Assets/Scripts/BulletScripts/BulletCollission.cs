@@ -1,4 +1,5 @@
 using UnityEngine;
+// Suggestion: Collission tiene un error de ortografía (Collision). Renombrá clase y archivo, igual que EnemyBulletCollision.
 public class BulletCollission : MonoBehaviour
 {
     [SerializeField] private int damage = 1;

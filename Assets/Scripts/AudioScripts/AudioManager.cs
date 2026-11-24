@@ -3,8 +3,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
+    // Warning: Instance es un campo public con set libre, cualquier script puede pisarlo.
+    // Usá public static AudioManager Instance { get; private set; } y destruí el duplicado en Awake si ya hay uno.
     public static AudioManager Instance;
     [Header("Audio Mixer")]
+    // Warning: mixer, las tres AudioSource y todos los AudioClip son public. Pasalos a [SerializeField] private, ninguna otra clase los usa.
     public AudioMixer mixer;
     [Header("Music")]
     public AudioSource musicSource;
@@ -27,12 +30,15 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        // Warning: FindMatchingGroups("Music")[0] asume que la búsqueda devuelve al menos un grupo, y en Master.mixer los grupos se llaman "MusicVolume" y "SFXVolume".
+        // Si no encuentra nada tira IndexOutOfRangeException en Awake. Serializá los AudioMixerGroup y asignalos por inspector.
         musicSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Music")[0];
         SfxSource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
         runSource.outputAudioMixerGroup = SfxSource.outputAudioMixerGroup;
     }
     private void Start()
     {
+        // Warning: "MainMenu" es un string mágico. Usá una constante compartida con el resto de los nombres de escena.
         AudioClip clip = SceneManager.GetActiveScene().name == "MainMenu" ? mainMenuMusic : gameplayMusic;
 
         if (clip != null)

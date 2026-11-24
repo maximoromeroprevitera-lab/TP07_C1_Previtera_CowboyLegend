@@ -1,6 +1,8 @@
 using UnityEngine;
 public class EnemyHealthBar : MonoBehaviour
 {
+    // Error: La barra de vida es un SpriteRenderer escalado por Transform (HealthBar y Fill en Enemy.prefab), no un Canvas en World Space como pide la consigna.
+    // Armá un Canvas con Render Mode World Space como hijo del enemigo y usá una Image con fillAmount.
     [SerializeField] private Transform fill;
     private Vector3 originalScale;
     private void Start()

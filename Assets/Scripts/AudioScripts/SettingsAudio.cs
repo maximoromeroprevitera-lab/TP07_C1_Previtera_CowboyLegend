@@ -15,6 +15,7 @@ public class SettingsAudio : MonoBehaviour
         musicSlider.onValueChanged.AddListener(v =>
         {
             AudioManager.Instance.SetMusicVolume(v);
+            // Warning: LogState se ejecuta en cada onValueChanged, así que arrastrar el slider inunda la consola. Sacá el log de depuración.
             LogState("MUSIC slider", musicSlider);
         });
 

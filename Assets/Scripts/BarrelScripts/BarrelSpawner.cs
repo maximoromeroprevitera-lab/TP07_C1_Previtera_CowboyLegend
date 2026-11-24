@@ -46,6 +46,8 @@ public class BarrelSpawner : MonoBehaviour
     {
         int count = 0;
 
+        // Warning: FindObjectsByType<Barrel> en runtime, y IsFree vuelve a buscar Barrel y EnemyLife en cada intento.
+        // Guardá los barriles instanciados en una List<Barrel> en lugar de buscarlos en toda la escena.
         foreach (Barrel barrel in FindObjectsByType<Barrel>(FindObjectsSortMode.None))
         {
             if (Mathf.Abs(barrel.transform.position.x - player.position.x) > despawnDistance)

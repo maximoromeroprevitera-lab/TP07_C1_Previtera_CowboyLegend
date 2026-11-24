@@ -11,6 +11,8 @@ public class ObjectiveMessage : MonoBehaviour
     {
         rectTransform = objectiveText.GetComponent<RectTransform>();
 
+        // Suggestion: El texto del objetivo y los 100 segundos están hardcodeados, y el tiempo real vive en BarDoorSpawner.timeToAppear.
+        // Armá el texto a partir de ese valor (o de un SO) para que no queden desincronizados.
         objectiveText.text = "¡SOBREVIVE!\nSobrevive 100 segundos y llega a la puerta del bar.";
         objectiveText.gameObject.SetActive(true);
 

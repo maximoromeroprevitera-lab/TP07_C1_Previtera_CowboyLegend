@@ -1,6 +1,7 @@
 using UnityEngine;
 public class GroundSpawn : MonoBehaviour
 {
+    // Warning: player, groundPieces y groundWidth son public. Pasalos a [SerializeField] private.
     public Transform player;
     public Transform[] groundPieces;
     public float groundWidth = 30f;

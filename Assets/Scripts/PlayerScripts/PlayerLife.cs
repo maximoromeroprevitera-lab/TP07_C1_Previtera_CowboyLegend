@@ -1,6 +1,7 @@
 using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
+    // Warning: Campo public mutable, cualquier clase puede reemplazar la referencia. Pasalo a [SerializeField] private GameManager gameManager;
     public GameManager gameManager;
     [SerializeField] private PlayerDataSO playerData;
     private int currentHealth;

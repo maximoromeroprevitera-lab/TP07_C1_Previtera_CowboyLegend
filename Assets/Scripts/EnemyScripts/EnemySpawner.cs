@@ -46,6 +46,8 @@ public class EnemySpawner : MonoBehaviour
     {
         int count = 0;
 
+        // Warning: FindObjectsByType recorre toda la escena en runtime, y IsFree lo vuelve a llamar (dos veces) en cada uno de los hasta 10 intentos.
+        // Mantené una List<EnemyLife> donde cada enemigo se registre en OnEnable y se quite en OnDisable.
         foreach (EnemyLife enemy in FindObjectsByType<EnemyLife>(FindObjectsSortMode.None))
         {
             if (Mathf.Abs(enemy.transform.position.x - player.position.x) > despawnDistance)
@@ -73,6 +75,8 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+    // Suggestion: IsFree, el conteo con despawn y el loop de 10 intentos están casi iguales en BarrelSpawner y HealthPickableSpawner.
+    // Extraé una clase base Spawner con esa lógica y dejá en cada hijo solo lo que cambia.
     private bool IsFree(float x)
     {
         foreach (EnemyLife enemy in FindObjectsByType<EnemyLife>(FindObjectsSortMode.None))

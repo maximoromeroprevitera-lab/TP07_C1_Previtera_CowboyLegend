@@ -42,6 +42,7 @@ public class HealthPickableSpawner : MonoBehaviour
     {
         int count = 0;
 
+        // Warning: FindObjectsByType<HealthPickable> en runtime cada spawnTime, más las búsquedas de IsFree. Llevá una lista propia de los pickables creados.
         foreach (HealthPickable pickable in FindObjectsByType<HealthPickable>(FindObjectsSortMode.None))
         {
             if (Mathf.Abs(pickable.transform.position.x - player.position.x) > despawnDistance)

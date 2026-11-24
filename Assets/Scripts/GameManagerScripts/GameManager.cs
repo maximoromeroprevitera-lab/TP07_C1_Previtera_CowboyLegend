@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 public class GameManager : MonoBehaviour
 {
+    // Warning: GameOverPanel y deathDelay son public. Pasalos a [SerializeField] private y usá camelCase en el campo (gameOverPanel).
     public GameObject GameOverPanel;
     public float deathDelay = 2f;
     private bool gameEnded;
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1f;
+        // Warning: "Game" es un string mágico que se repite en VictoryManager.PlayAgain y ButtonPlay.PlayGame.
+        // Si renombrás la escena se rompe en tres lugares. Definí un const string GameScene en una clase de constantes.
         SceneManager.LoadScene("Game");
     }
 }

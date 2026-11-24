@@ -4,6 +4,7 @@ public class EnemyBulletCollision : MonoBehaviour
     [SerializeField] private int damage = 1;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Suggestion: El propio comentario dice TEMPORAL. Borrá este Debug.Log antes de entregar.
         Debug.Log("Bala enemiga tocó: " + collision.name); // TEMPORAL, borrar después de probar
 
         Barrel barrel = collision.GetComponentInParent<Barrel>();
